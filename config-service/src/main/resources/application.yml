@@ -1,0 +1,13 @@
+
+server:
+  port: 10000
+spring:
+  application:
+    name: config-servie
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.oschina.net/jamen/blife-config-centor.git
+          search-paths: blife-config-centor
+
