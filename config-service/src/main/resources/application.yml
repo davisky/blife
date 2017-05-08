@@ -1,6 +1,6 @@
 
 server:
-  port: 10000
+  port: 7000
 spring:
   application:
     name: config-servie
