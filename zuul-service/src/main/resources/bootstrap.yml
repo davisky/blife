@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: zuul-service
+  cloud:
+    config:
+      uri: http://10.10.8.101:7000
+      profile: dev

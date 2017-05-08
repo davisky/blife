@@ -25,6 +25,7 @@
         <module name="blife-config-service" />
         <module name="config-service" />
         <module name="eureka-service" />
+        <module name="zuul-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +33,7 @@
       <module name="blife-config-service" target="1.8" />
       <module name="config-service" target="1.8" />
       <module name="eureka-service" target="1.8" />
+      <module name="zuul-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
