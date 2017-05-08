@@ -2,7 +2,7 @@ server:
   port: ${partition.host3.port}
 eureka:
   instance:
-    hostname: ${partition.host1.name}
+    hostname: ${partition.host3.name}
   client:
      serviceUrl:
         defaultZone: http://${partition.host1.name}:${partition.host1.port}/eureka/,http://${partition.host2.name}:${partition.host2.port}/eureka/
@@ -15,4 +15,4 @@ spring:
       profile: dev
       uri: http://10.10.8.101:7000
   application:
-    name: eureka-service
+    name: eureka-service3
