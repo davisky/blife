@@ -24,12 +24,14 @@
         <processorPath useClasspath="true" />
         <module name="blife-config-service" />
         <module name="config-service" />
+        <module name="eureka-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="blife" target="1.8" />
       <module name="blife-config-service" target="1.8" />
       <module name="config-service" target="1.8" />
+      <module name="eureka-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
