@@ -16,6 +16,7 @@
         <spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
         <blife-version>1.0-SNAPSHOT</blife-version>
         <spring-boot-version>1.5.3.RELEASE</spring-boot-version>
+
     </properties>
 
 
