@@ -3,8 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/blife.iml" filepath="$PROJECT_DIR$/blife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commone/commone.iml" filepath="$PROJECT_DIR$/commone/commone.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-service/config-service.iml" filepath="$PROJECT_DIR$/config-service/config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jwt-service/jwt-service.iml" filepath="$PROJECT_DIR$/jwt-service/jwt-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sign-service/sign-service.iml" filepath="$PROJECT_DIR$/sign-service/sign-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-service/sys-service.iml" filepath="$PROJECT_DIR$/sys-service/sys-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/zuul-service/zuul-service.iml" filepath="$PROJECT_DIR$/zuul-service/zuul-service.iml" />
     </modules>
   </component>

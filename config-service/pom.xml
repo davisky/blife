@@ -13,7 +13,7 @@
 	<description>config-service project for Spring Boot</description>
 
 	<parent>
-		<groupId>com.jamen</groupId>
+		<groupId>com.blife</groupId>
 		<artifactId>blife</artifactId>
         <version>${blife-version}</version>
 	</parent>

@@ -5,7 +5,7 @@ eureka:
     hostname: ${partition.host3.name}
   client:
      serviceUrl:
-        defaultZone: http://${partition.host1.name}:${partition.host1.port}/eureka/,http://${partition.host2.name}:${partition.host2.port}/eureka/
+        defaultZone: http://${partition.host2.name}:${partition.host2.port}/eureka/,http://${partition.host1.name}:${partition.host1.port}/eureka/
 
 spring:
   cloud:
@@ -13,6 +13,6 @@ spring:
       allow-override: false
       #label: master
       profile: dev
-      uri: http://10.10.8.101:7000
+      uri: http://b-config-service:7000
   application:
-    name: eureka-service3
+    name: eureka-service

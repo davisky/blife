@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jamen</groupId>
+    <groupId>com.blife</groupId>
     <artifactId>blife</artifactId>
     <version>${blife-version}</version>
     <packaging>pom</packaging>
@@ -31,6 +31,10 @@
         <module>config-service</module>
         <module>eureka-service</module>
         <module>zuul-service</module>
+        <module>sign-service</module>
+        <module>jwt-service</module>
+        <module>sys-service</module>
+        <module>commone</module>
     </modules>
 
     <dependencies>
@@ -47,6 +51,15 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -60,15 +73,38 @@
             </dependency>
 
             <dependency>
-                <groupId>com.jamen</groupId>
+                <groupId>com.blife</groupId>
                 <artifactId>config-service</artifactId>
                 <version>${blife-version}</version>
             </dependency>
             <dependency>
-                <groupId>com.jamen</groupId>
-                <artifactId>config-eureka</artifactId>
+                <groupId>com.blife</groupId>
+                <artifactId>eureka-service</artifactId>
                 <version>${blife-version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.blife</groupId>
+                <artifactId>zuul-service</artifactId>
+                <version>${blife-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.blife</groupId>
+                <artifactId>sign-service</artifactId>
+                <version>${blife-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.blife</groupId>
+                <artifactId>jwt-service</artifactId>
+                <version>${blife-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.blife</groupId>
+                <artifactId>sys-service</artifactId>
+                <version>${blife-version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
