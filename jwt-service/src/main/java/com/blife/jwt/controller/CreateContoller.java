@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * Email 122741482@qq.com
  * <p>
- * Describe: 创建 jwt
+ * Describe: 创建  jwt
  */
 @RestController
 @RequestMapping(value = "/create")
