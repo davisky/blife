@@ -6,3 +6,5 @@ spring:
     config:
      uri: http://b-config-service:7000
      profile: dev
+  zipkin:
+    base-url: http://localhost:7013
