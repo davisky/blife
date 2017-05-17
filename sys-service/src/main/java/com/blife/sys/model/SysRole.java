@@ -1,6 +1,7 @@
 package com.blife.sys.model;
 
 import com.blife.commone.constant.Global;
+
 import com.blife.commone.enumns.DataScopeEnum;
 import com.blife.commone.model.DataEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jwt-service/jwt-service.iml" filepath="$PROJECT_DIR$/jwt-service/jwt-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sign-service/sign-service.iml" filepath="$PROJECT_DIR$/sign-service/sign-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sleuth-service/sleuth-service.iml" filepath="$PROJECT_DIR$/sleuth-service/sleuth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sys-service/sys-service.iml" filepath="$PROJECT_DIR$/sys-service/sys-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/zuul-service/zuul-service.iml" filepath="$PROJECT_DIR$/zuul-service/zuul-service.iml" />
     </modules>

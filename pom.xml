@@ -36,6 +36,7 @@
         <module>jwt-service</module>
         <module>sys-service</module>
         <module>commone</module>
+        <module>sleuth-service</module>
     </modules>
 
     <dependencies>
@@ -59,6 +60,26 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+
+        <!--zipkin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+        <!--工具类-->
+        <dependency>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>3.0.5</version>
         </dependency>
 
     </dependencies>
@@ -105,7 +126,11 @@
                 <artifactId>sys-service</artifactId>
                 <version>${blife-version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.blife</groupId>
+                <artifactId>sleuth-service</artifactId>
+                <version>${blife-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

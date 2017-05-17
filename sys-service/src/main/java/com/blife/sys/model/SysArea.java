@@ -1,6 +1,7 @@
 package com.blife.sys.model;
 
-import com.jlife.base.entity.BaseEntity;
+
+import com.blife.commone.model.BaseEntity;
 
 /**
  * Created by chen on 2017/3/31.

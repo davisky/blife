@@ -1,6 +1,7 @@
+
 spring:
   application:
-    name: sys_service
+    name: sys-service
   cloud:
     config:
      uri: http://b-config-service:7000
