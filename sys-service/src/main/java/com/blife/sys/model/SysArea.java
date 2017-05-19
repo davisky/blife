@@ -10,7 +10,7 @@ import java.io.Serializable;
  * <p>
  * Email 122741482@qq.com
  * <p>
- * Describe: 区域信息表
+ * Describe: 区域信息表。
  */
 public class SysArea extends BaseEntity<SysArea> {
 
