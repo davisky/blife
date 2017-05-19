@@ -3,6 +3,9 @@
  */
 package com.blife.commone.model;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.blife.commone.constant.Global;
 import com.blife.commone.util.IdGen;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,15 +18,19 @@ import java.util.Date;
  * 数据Entity类
  * @param <T>
  */
-public abstract class DataEntity<T> extends BaseEntity<T> {
+public abstract class DataEntity<T extends Model> extends BaseEntity<T> {
 
 	private static final long serialVersionUID = 1L;
-	
 
-	protected String createId;	// 创建者
+	@TableField(value = "create_id")
+	protected Long createId;	// 创建者
+	@TableField(value = "create_date")
 	protected Date createDate;	// 创建日期
-	protected String updateId;	// 更新者
+	@TableField(value = "update_id")
+	protected Long updateId;	// 更新者
+	@TableField(value = "update_date")
 	protected Date updateDate;	// 更新日期
+	@TableField(value = "del_flag")
 	protected String delFlag; 	// 删除标记（Y：正常；N：删除；A：审核；）
 	protected String remark;	// 备注
 
@@ -32,13 +39,15 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	 * 插入之前执行方法，需要手动调用
 	 */
 	@Override
-	public void preInsert(String insertUserId){
+	public void preInsert(Long insertUserId){
 		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
-		if (!this.isNewRecord){
+/*		if (!this.isNewRecord){
 			setId(IdGen.uuid());
-		}
+		}*/
 
-		if (StringUtils.isNotBlank(insertUserId)){
+			//setId(IdGen.uuid());
+
+		if (null!=insertUserId){
 			this.updateId = insertUserId;
 			this.createId = insertUserId;
 		}
@@ -50,20 +59,20 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	 * 更新之前执行方法，需要手动调用
 	 */
 	@Override
-	public void preUpdate(String updateUserId){
+	public void preUpdate(Long updateUserId){
 
-		if (StringUtils.isNotBlank(updateUserId)){
+		if (null!=updateUserId){
 			this.updateId = updateUserId;
 		}
 		this.updateDate = new Date();
 	}
 
 	@JsonIgnore
-	public String getCreateId() {
+	public Long getCreateId() {
 		return createId;
 	}
 
-	public void setCreateId(String createId) {
+	public void setCreateId(Long createId) {
 		this.createId = createId;
 	}
 
@@ -78,21 +87,21 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	}
 
 	@JsonIgnore
-	public String getUpdateId() {
+	public Long getUpdateId() {
 		return updateId;
 	}
 
-	public void setUpdateId(String updateId) {
+	public void setUpdateId(Long updateId) {
 		this.updateId = updateId;
 	}
 
 	public DataEntity() {
 		super();
-		this.delFlag = DEL_FLAG_NORMAL;
+		this.delFlag = Global.DEL_FLAG_NORMAL;
 
 	}
 
-	public DataEntity(String id) {
+	public DataEntity(Long id) {
 		super(id);
 	}
 

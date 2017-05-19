@@ -3,6 +3,8 @@ package com.blife.sys.model;
 
 import com.blife.commone.model.DataEntity;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 2017/4/10.
  * <p>
@@ -71,5 +73,9 @@ public class SysLog extends DataEntity<SysLog> {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }

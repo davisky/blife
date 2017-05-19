@@ -4,15 +4,8 @@
 package com.blife.commone.model;
 
 
+import com.baomidou.mybatisplus.activerecord.Model;
 
-import com.blife.commone.util.StringUtils;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.common.collect.Maps;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import javax.xml.bind.annotation.XmlTransient;
-import java.io.Serializable;
-import java.util.Map;
 
 /**
  * Entity支持类
@@ -20,25 +13,26 @@ import java.util.Map;
  * @param <T>
  */
 
-public abstract class BaseEntity<T> implements Serializable {
+public abstract class BaseEntity<T extends Model> extends Model<T>  {
 
-    private static final long serialVersionUID = 1L;
+
 
     /**
      * 实体编号（唯一标识）
      */
-    protected String id;
+
+    protected Long id;
 
     /**
      * 自定义SQL（SQL标识，SQL内容）
      */
-    protected Map<String, String> sqlMap;
+   /* protected Map<String, String> sqlMap;*/
 
     /**
      * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
      * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
      */
-    protected boolean isNewRecord = false;
+  /*  protected boolean isNewRecord = false;*/
 
     /**
      * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
@@ -46,28 +40,30 @@ public abstract class BaseEntity<T> implements Serializable {
      *
      * @return
      */
-    public boolean getIsNewRecord() {
+/*    public boolean getIsNewRecord() {
         return isNewRecord || StringUtils.isBlank(getId());
     }
-
+    public void setIsNewRecord(boolean isNewRecord) {
+        this.isNewRecord = isNewRecord;
+    }*/
     public BaseEntity() {
 
     }
 
-    public BaseEntity(String id) {
+    public BaseEntity(Long id) {
         this();
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    @JsonIgnore
+  /*  @JsonIgnore
     @XmlTransient
     public Map<String, String> getSqlMap() {
         if (sqlMap == null) {
@@ -78,25 +74,23 @@ public abstract class BaseEntity<T> implements Serializable {
 
     public void setSqlMap(Map<String, String> sqlMap) {
         this.sqlMap = sqlMap;
-    }
+    }*/
 
     /**
      * 插入之前执行方法，子类实现
      */
-    public abstract void preInsert(String insertUserId);
+    public abstract void preInsert(Long insertUserId);
 
     /**
      * 更新之前执行方法，子类实现
      */
-    public abstract void preUpdate(String updateUserId);
+    public abstract void preUpdate(Long updateUserId);
 
     /**
      * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
      * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
      */
-    public void setIsNewRecord(boolean isNewRecord) {
-        this.isNewRecord = isNewRecord;
-    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -113,16 +107,7 @@ public abstract class BaseEntity<T> implements Serializable {
         return null == this.getId() ? false : this.getId().equals(that.getId());
     }
 
-    @Override
-    public String toString() {
-        return ReflectionToStringBuilder.toString(this);
-    }
 
-    /**
-     * 删除标记（Y：正常；N：删除；A：审核；）
-     */
-    public static final String DEL_FLAG_NORMAL = "Y";
-    public static final String DEL_FLAG_DELETE = "N";
-    public static final String DEL_FLAG_AUDIT = "A";
+
 
 }

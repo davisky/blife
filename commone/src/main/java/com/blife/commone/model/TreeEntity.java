@@ -1,6 +1,7 @@
 package com.blife.commone.model;
 
 
+import com.baomidou.mybatisplus.activerecord.Model;
 import com.blife.commone.util.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
@@ -11,7 +12,7 @@ import org.hibernate.validator.constraints.Length;
  *
  * @version 2014-05-16
  */
-public abstract class TreeEntity<T> extends DataEntity<T> {
+public abstract class TreeEntity<T extends Model> extends DataEntity<T> {
 
     private static final long serialVersionUID = 1L;
 
@@ -51,13 +52,16 @@ public abstract class TreeEntity<T> extends DataEntity<T> {
         this.sort = 30;
     }
 
-    public TreeEntity(String id) {
+    public TreeEntity(Long id) {
         super(id);
     }
 
     @Length(min = 0, max = 64, message = "父id长度必须介于 1 和 64 之间")
-    public String getParentId() {
+   /* public Long getParentId() {
         return StringUtils.isNotBlank(id) ? id : "0";
+    }*/
+    public Long getParentId() {
+        return id;
     }
 
     public void setParentId(String parentId) {

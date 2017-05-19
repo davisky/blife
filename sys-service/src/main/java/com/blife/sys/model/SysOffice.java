@@ -4,6 +4,8 @@ package com.blife.sys.model;
 import com.blife.commone.model.TreeEntity;
 import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 2017/3/2.
  * <p>
@@ -44,5 +46,10 @@ public class SysOffice extends TreeEntity<SysOffice> {
 
     public void setSysCompanyId(String sysCompanyId) {
         this.sysCompanyId = sysCompanyId;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }

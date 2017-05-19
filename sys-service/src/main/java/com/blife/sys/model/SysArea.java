@@ -3,6 +3,8 @@ package com.blife.sys.model;
 
 import com.blife.commone.model.BaseEntity;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 2017/3/31.
  * <p>
@@ -50,12 +52,17 @@ public class SysArea extends BaseEntity<SysArea> {
     }
 
     @Override
-    public void preInsert(String insertUserId) {
+    public void preInsert(Long insertUserId) {
 
     }
 
     @Override
-    public void preUpdate(String updateUserId) {
+    public void preUpdate(Long updateUserId) {
 
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }

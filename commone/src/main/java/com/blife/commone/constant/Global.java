@@ -62,5 +62,12 @@ public class Global {
         return null;
     }
 
+    /**
+     * 删除标记（Y：正常；N：删除；A：审核；）
+     */
+    public static final String DEL_FLAG_NORMAL = "Y";
+    public static final String DEL_FLAG_DELETE = "N";
+    public static final String DEL_FLAG_AUDIT = "A";
+
 
 }

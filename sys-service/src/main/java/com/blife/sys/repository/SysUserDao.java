@@ -1,6 +1,7 @@
 package com.blife.sys.repository;
 
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.blife.commone.repository.CrudDao;
 import com.blife.sys.model.SysUser;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +15,7 @@ import java.util.List;
  * Describe: 系统用户dao
  */
 @Component
-public interface SysUserDao extends CrudDao<SysUser> {
+public interface SysUserDao extends BaseMapper<SysUser> {
 
 
     /**
@@ -35,4 +36,6 @@ public interface SysUserDao extends CrudDao<SysUser> {
     List<SysUser> getSysUserBySysOfficeId(@Param("sysOfficeId") String sysOfficeId, @Param("delFlag") String delFlag);
 
     Long findAllCount();
+
+
 }

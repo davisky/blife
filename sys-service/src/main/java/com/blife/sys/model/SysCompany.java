@@ -4,6 +4,8 @@ import com.blife.commone.model.DataEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 2017/3/31.
  * <p>
@@ -129,5 +131,9 @@ public class SysCompany extends DataEntity<SysCompany> {
 
     public void setName(String name) {
         this.name = name;
+    }
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }

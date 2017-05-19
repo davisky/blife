@@ -40,6 +40,7 @@ public class DruidAutoConfiguration {
         }
         dataSource.setTestOnBorrow(properties.isTestOnBorrow());
         try {
+            dataSource.setFilters("stat,wall");
             dataSource.init();
         } catch (SQLException e) {
             throw new RuntimeException(e);

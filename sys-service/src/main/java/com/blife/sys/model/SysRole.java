@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -71,7 +72,7 @@ public class SysRole extends DataEntity<SysRole> {
         this.useable = Global.YES;
     }
 
-    public SysRole(String id) {
+    public SysRole(Long id) {
         super(id);
     }
 
@@ -142,5 +143,9 @@ public class SysRole extends DataEntity<SysRole> {
 
     public void setSysOfficeList(List<SysOffice> sysOfficeList) {
         this.sysOfficeList = sysOfficeList;
+    }
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 }

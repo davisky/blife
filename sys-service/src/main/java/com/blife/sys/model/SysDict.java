@@ -3,6 +3,8 @@ package com.blife.sys.model;
 import com.blife.commone.model.TreeEntity;
 import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 2017/4/10.
  * <p>
@@ -47,5 +49,8 @@ public class SysDict extends TreeEntity<SysDict> {
         this.sysCompanyId = sysCompanyId;
     }
 
-
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
 }
