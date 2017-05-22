@@ -15,18 +15,32 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Configuration
 public class MybatisPlusConfig {
 	@Autowired
 	private DataSource dataSource;
 
+	@Resource(name = "writeDataSource1")
+	private DataSource writeDataSource;
+
 	@Autowired
 	private MybatisProperties properties;
+
+	//@Value("${datasource.readSize}")
+	private int dataSourceSize=2;
+
+	@Resource(name = "readDataSources")
+	private List<DataSource> readDataSources;
 
 	@Autowired
 	private ResourceLoader resourceLoader = new DefaultResourceLoader();
@@ -56,7 +70,11 @@ public class MybatisPlusConfig {
 	@Bean
 	public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() {
 		MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
-		mybatisPlus.setDataSource(dataSource);
+		//mybatisPlus.setDataSource(dataSource);
+
+		mybatisPlus.setDataSource(roundRobinDataSouceProxy());
+
+
 		mybatisPlus.setVfs(SpringBootVFS.class);
 		if (StringUtils.hasText(this.properties.getConfigLocation())) {
 			mybatisPlus.setConfigLocation(this.resourceLoader.getResource(this.properties.getConfigLocation()));
@@ -89,5 +107,29 @@ public class MybatisPlusConfig {
 			mybatisPlus.setMapperLocations(this.properties.resolveMapperLocations());
 		}
 		return mybatisPlus;
+	}
+
+	/**
+	 * 有多少个数据源就要配置多少个bean
+	 * @return
+	 */
+	@Bean(name = "dataSource")
+	public AbstractRoutingDataSource roundRobinDataSouceProxy() {
+		//int size = Integer.parseInt(dataSourceSize);
+		int size = dataSourceSize;
+
+		BlifeAbstractRoutingDataSource proxy = new BlifeAbstractRoutingDataSource(size);
+		Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
+		// DataSource writeDataSource = SpringContextHolder.getBean("writeDataSource");
+		// 写
+		targetDataSources.put(DataSourceType.write.getType(),writeDataSource);
+		// targetDataSources.put(DataSourceType.read.getType(),readDataSource);
+		//多个读数据库时
+		for (int i = 0; i < size; i++) {
+			targetDataSources.put(i, readDataSources.get(i));
+		}
+		proxy.setDefaultTargetDataSource(writeDataSource);
+		proxy.setTargetDataSources(targetDataSources);
+		return proxy;
 	}
 }
