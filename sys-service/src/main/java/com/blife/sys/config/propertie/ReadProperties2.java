@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@ConfigurationProperties(prefix = "writedatasource")
-public class WriteProperties extends DataProperties{
+@ConfigurationProperties(prefix = "readdatasource02")
+public class ReadProperties2 extends DataProperties{
 
 }
