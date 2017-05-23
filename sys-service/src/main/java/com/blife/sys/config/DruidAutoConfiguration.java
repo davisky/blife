@@ -71,7 +71,7 @@ public class DruidAutoConfiguration {
 
 
 
-   // @Value("${datasource.type}")
+   /// @Value("${datasource.type}")
    // private Class<? extends DataSource> dataSourceType= DruidDataSource.class;
 
     @Autowired
