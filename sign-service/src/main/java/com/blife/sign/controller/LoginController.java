@@ -1,6 +1,6 @@
 package com.blife.sign.controller;
 
-import com.blife.commone.model.ReturnDto;
+import com.blife.commone.model.ReturnDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +22,8 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/v1/web", method = RequestMethod.POST)
-    public ReturnDto webLogin() {
-        ReturnDto returnDto = new ReturnDto();
+    public ReturnDTO webLogin() {
+        ReturnDTO returnDto = new ReturnDTO();
         return returnDto;
     }
 }

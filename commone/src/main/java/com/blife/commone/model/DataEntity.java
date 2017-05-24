@@ -5,6 +5,7 @@ package com.blife.commone.model;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldStrategy;
 import com.blife.commone.constant.Global;
 import com.blife.commone.util.IdGen;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -22,13 +23,13 @@ public abstract class DataEntity<T extends Model> extends BaseEntity<T> {
 
 	private static final long serialVersionUID = 1L;
 
-	@TableField(value = "create_id")
+	@TableField(value = "create_id",validate= FieldStrategy.IGNORED)
 	protected Long createId;	// 创建者
-	@TableField(value = "create_date")
+	@TableField(value = "create_date",validate=FieldStrategy.IGNORED)
 	protected Date createDate;	// 创建日期
-	@TableField(value = "update_id")
+	@TableField(value = "update_id",validate=FieldStrategy.IGNORED)
 	protected Long updateId;	// 更新者
-	@TableField(value = "update_date")
+	@TableField(value = "update_date",validate=FieldStrategy.IGNORED)
 	protected Date updateDate;	// 更新日期
 	@TableField(value = "del_flag")
 	protected String delFlag; 	// 删除标记（Y：正常；N：删除；A：审核；）

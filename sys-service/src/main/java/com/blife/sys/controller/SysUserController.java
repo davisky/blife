@@ -1,5 +1,7 @@
 package com.blife.sys.controller;
 
+import com.blife.commone.model.ReturnDTO;
+import com.blife.commone.util.ReturnDTOUtil;
 import com.blife.sys.model.SysUser;
 import com.blife.sys.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,9 @@ public class SysUserController {
     }
 
     @RequestMapping(value = "/v1/getbyid",method = RequestMethod.GET)
-    public SysUser add(@RequestParam("id") String id){
+    public ReturnDTO add(@RequestParam("id") String id){
 
-        return sysUserService.getById(id);
+        return ReturnDTOUtil.success(sysUserService.getById(id));
     }
 
     @RequestMapping(value = "/v1/add1",method = RequestMethod.GET)

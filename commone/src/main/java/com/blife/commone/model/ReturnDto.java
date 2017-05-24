@@ -1,5 +1,7 @@
 package com.blife.commone.model;
 
+import com.blife.commone.enumns.HttpCodeEnum;
+
 /**
  * Created by chen on 2017/5/8.
  * <p>
@@ -7,23 +9,50 @@ package com.blife.commone.model;
  * <p>
  * Describe: 返回的 数据模型
  */
-public class ReturnDto {
-    private boolean flag;
-    private Object msg;
+public class ReturnDTO {
+    private int code;
+    private String error;
+    private Object message;
 
-    public boolean isFlag() {
-        return flag;
+    public ReturnDTO(int code, String error, Object message) {
+        this.code = code;
+        this.error = error;
+        this.message = message;
+    }
+    public ReturnDTO(int code, String error) {
+        this.code = code;
+        this.error = error;
+    }
+    public ReturnDTO(int code, Object message) {
+        this.code = code;
+        this.message = message;
+    }
+    public ReturnDTO() {
+
     }
 
-    public void setFlag(boolean flag) {
-        this.flag = flag;
+    public int getCode() {
+        return code;
     }
 
-    public Object getMsg() {
-        return msg;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public void setMsg(Object msg) {
-        this.msg = msg;
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public Object getMessage() {
+        return message;
+    }
+
+    public void setMessage(Object message) {
+        this.message = message;
     }
 }
+
