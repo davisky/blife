@@ -57,7 +57,7 @@ public abstract class DataEntity<T extends Model> extends BaseEntity<T> {
 	}
 
 	/**
-	 * 更新之前执行方法，需要手动调用。
+	 * 更新之前执行方法，需要手动调用
 	 */
 	@Override
 	public void preUpdate(Long updateUserId){
