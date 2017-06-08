@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
 import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.enums.DBType;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
@@ -53,6 +54,22 @@ public class MybatisPlusConfig {
 
 	@Autowired
 	SysMetaObjectHandler sysMetaObjectHandler;
+
+
+	/***
+	 * plus 的性能优化
+	 * @return
+     */
+	@Bean
+	public PerformanceInterceptor performanceInterceptor() {
+		PerformanceInterceptor performanceInterceptor=new PerformanceInterceptor();
+		/*<!-- SQL 执行性能分析，开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长 -->*/
+		performanceInterceptor.setMaxTime(100);
+		/*<!--SQL是否格式化 默认false-->*/
+		performanceInterceptor.setFormat(true);
+		return performanceInterceptor;
+	}
+
 	/**
 	 *	 mybatis-plus分页插件
 	 */

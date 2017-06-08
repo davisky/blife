@@ -1,6 +1,8 @@
 package com.blife.sign.controller;
 
+import com.blife.commone.model.ReturnDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,4 +15,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/logout")
 @RestController
 public class LogoutController {
+
+    /**
+     * web 端登出
+     *
+     * @return
+     */
+    @RequestMapping(value = "/v1/web", method = RequestMethod.POST)
+    public ReturnDTO webLogout() {
+        ReturnDTO returnDto = new ReturnDTO();
+        return returnDto;
+    }
+
+    /**
+     * 移动端登出
+     * @return
+     */
+    @RequestMapping(value = "/v1/phone", method = RequestMethod.POST)
+    public ReturnDTO phoneLogout() {
+        ReturnDTO returnDto = new ReturnDTO();
+        return returnDto;
+    }
+
 }

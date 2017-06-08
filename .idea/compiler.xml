@@ -27,9 +27,12 @@
         <module name="config-service" />
         <module name="eureka-service" />
         <module name="jwt-service" />
+        <module name="security-service" />
         <module name="sign-service" />
         <module name="sleuth-service" />
         <module name="sys-service" />
+        <module name="test" />
+        <module name="turbine-service" />
         <module name="zuul-service" />
       </profile>
     </annotationProcessing>
@@ -40,9 +43,12 @@
       <module name="config-service" target="1.8" />
       <module name="eureka-service" target="1.8" />
       <module name="jwt-service" target="1.8" />
+      <module name="security-service" target="1.8" />
       <module name="sign-service" target="1.8" />
       <module name="sleuth-service" target="1.8" />
       <module name="sys-service" target="1.8" />
+      <module name="test" target="1.8" />
+      <module name="turbine-service" target="1.8" />
       <module name="zuul-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>

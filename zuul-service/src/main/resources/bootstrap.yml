@@ -3,7 +3,7 @@ spring:
     name: zuul-service
   cloud:
     config:
-      uri: http://10.10.8.101:7000
+      uri: http://10.10.20.100:7000
       profile: dev
 
 

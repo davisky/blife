@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blife.security.respository.JwtUserDao">
+
+    <resultMap id="user" type="jwtUser">
+        <id column="id" property="id"></id>
+        <collection property="jwtRoles" resultMap="role"></collection>
+    </resultMap>
+    <resultMap id="role" type="jwtRole">
+        <result column="code" property="role"></result>
+    </resultMap>
+
+<select id="selectRole" resultMap="user">
+    select u.id,r.code
+    from sys_user u
+    left join sys_user_sys_role ur
+    on u.id=ur.sys_user_id
+    left join sys_role r
+    on ur.sys_role_id=r.id
+</select>
+
+</mapper>

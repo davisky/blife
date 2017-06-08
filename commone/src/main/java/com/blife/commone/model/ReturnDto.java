@@ -1,7 +1,5 @@
 package com.blife.commone.model;
 
-import com.blife.commone.enumns.HttpCodeEnum;
-
 /**
  * Created by chen on 2017/5/8.
  * <p>

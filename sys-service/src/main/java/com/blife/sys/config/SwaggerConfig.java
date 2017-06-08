@@ -31,10 +31,10 @@ public class SwaggerConfig {
     }
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title(" sys service api ")
-                .description("sys 微服务")
+                .title(" 用户和订单 api ")
+                .description("接口服务")
                 .termsOfServiceUrl("http://blog.didispace.com/")
-                .contact("呵呵")
+                .contact("云采购系统接口文档")
                 .version("1.0")
                 .build();
     }

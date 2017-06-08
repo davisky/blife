@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by chen on 2017/5/10.
@@ -27,7 +28,7 @@ public class CreateService {
      * @param value
      * @return
      */
-    public String create(String value) {
+    public String create(String value/*,Map<String, Object> claims*/) {
 
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         long nowMillis = System.currentTimeMillis();
@@ -35,7 +36,7 @@ public class CreateService {
         SecretKey key = Constant.generalKey();
         JwtBuilder builder = Jwts.builder()
                 .setIssuer(Constant.JWT_ISSUSER)
-                .setId(String.valueOf(value))
+                .setId(String.valueOf(value))/*.setClaims(claims)*/
                 .setIssuedAt(now)
                 .setSubject(value)
                 .signWith(signatureAlgorithm, key);

@@ -16,7 +16,8 @@
         <spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
         <blife-version>1.0-SNAPSHOT</blife-version>
         <spring-boot-version>1.5.3.RELEASE</spring-boot-version>
-
+        <swagger-version>2.7.0</swagger-version>
+        <mybatis-spring-boot-starter-version>1.3.0</mybatis-spring-boot-starter-version>
     </properties>
 
 
@@ -37,6 +38,8 @@
         <module>sys-service</module>
         <module>commone</module>
         <module>sleuth-service</module>
+        <module>security-service</module>
+        <module>turbine-service</module>
     </modules>
 
     <dependencies>
@@ -56,6 +59,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

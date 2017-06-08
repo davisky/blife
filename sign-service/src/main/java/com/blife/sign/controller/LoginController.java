@@ -26,4 +26,19 @@ public class LoginController {
         ReturnDTO returnDto = new ReturnDTO();
         return returnDto;
     }
+
+    /**
+     * 移动端登录
+     * @return
+     */
+    @RequestMapping(value = "/v1/phone", method = RequestMethod.POST)
+    public ReturnDTO phoneLogin() {
+        ReturnDTO returnDto = new ReturnDTO();
+        return returnDto;
+    }
+
+
+
+
+
 }
