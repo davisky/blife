@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/blife.iml" filepath="$PROJECT_DIR$/blife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-admin-service/cloud-admin-service.iml" filepath="$PROJECT_DIR$/cloud-admin-service/cloud-admin-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/commone/commone.iml" filepath="$PROJECT_DIR$/commone/commone.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-service/config-service.iml" filepath="$PROJECT_DIR$/config-service/config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />

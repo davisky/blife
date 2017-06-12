@@ -1,6 +1,6 @@
 spring:
   application:
-    name: jwt-service
+    name: cloud-admin-service
   cloud:
     config:
       uri: http://b-config-service:7000

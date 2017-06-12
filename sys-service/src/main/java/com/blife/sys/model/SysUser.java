@@ -45,8 +45,6 @@ public class SysUser extends DataEntity<SysUser> {
     private String photo;    // 头像
 
 
-
-
     public SysUser() {
         super();
         this.loginFlag = Global.YES;
@@ -181,7 +179,7 @@ public class SysUser extends DataEntity<SysUser> {
      * 用户拥有的角色名称字符串, 多个角色名称用','分隔.
      */
 
-
+    @JsonIgnore
     public boolean isAdmin() {
         return isAdmin(this.id);
     }
