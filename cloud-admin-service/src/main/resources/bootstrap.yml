@@ -5,7 +5,6 @@ spring:
     config:
       uri: http://b-config-service:7000
       profile: dev
-
 info:
   build:
     artifact: @project.artifactId@
