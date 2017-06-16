@@ -1,14 +1,3 @@
-# Server configuration
-server:
-  port: 8090
-
-# Logging configuration
-logging:
-  level:
-    org.springframework:
-      data: DEBUG
-      security: DEBUG
-
 
 spring:
   application:
@@ -17,29 +6,3 @@ spring:
     config:
      uri: http://b-config-service:7000
      profile: dev
-  zipkin:
-    base-url: http://localhost:7013
-
-druid:
-  url: jdbc:mysql://10.10.20.100:3306/blife?useUnicode=true&characterEncoding=utf8&useSSL=false
-  driverClass: com.mysql.jdbc.Driver
-  username: root
-  password: root
-  initialSize: 1
-  minIdle: 1
-  maxActive: 20
-  testOnBorrow: true
-  timeBetweenEvictionRunsMillis: 60000
-  minEvictableIdleTimeMillis: 300000
-  validationQuery: SELECT 1 FROM DUAL
-  testWhileIdle: true
-  testOnReturn: false
-  poolPreparedStatements: true
-  maxPoolPreparedStatementPerConnectionSize: 20
-  filters: stat,wall,logback
-  #connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-  useGlobalDataSourceStat: true
-
-mybatis:
-  mapperLocations: classpath:mappings/*.xml
-  typeAliasesPackage: com.blife.security.model

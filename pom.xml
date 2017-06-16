@@ -172,7 +172,6 @@
                     <useDefaultDelimiters>false</useDefaultDelimiters>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
