@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LoginService {
+
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
