@@ -1,6 +1,7 @@
 package com.blife.service;
 
 import com.blife.client.LoginClient;
+import com.blife.enumns.HttpCodeEnum;
 import com.blife.exception.BlifeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +21,19 @@ public class LoginService {
 
     @Autowired
     private LoginClient loginClient;
+
     /**
      * web 端登录
+     *
      * @param usermame
      * @param password
      * @param code
      */
     public String webLogin(String usermame, String password, String code) {
-      return   loginClient.webLogin(usermame,password);
-
+        String token = loginClient.webLogin(usermame, password);
+        if (null == token) {
+            throw new BlifeException(HttpCodeEnum.INTERNAL_SERVER_ERROR);
+        }
+        return token;
     }
 }

@@ -6,14 +6,6 @@ spring:
       uri: http://b-config-service:7000
       profile: dev
 
-  boot:
-    admin:
-      routes:
-        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
-      turbine:
-        clusters: default
-        location: turbine-service
-
 info:
   build:
     artifact: @project.artifactId@

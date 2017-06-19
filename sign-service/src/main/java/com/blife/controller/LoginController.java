@@ -5,8 +5,11 @@ import com.blife.exception.BlifeException;
 import com.blife.model.ReturnDTO;
 import com.blife.service.LoginService;
 import com.blife.util.ReqParamVerification;
+import com.blife.util.ReturnDTOUtil;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class LoginController {
 
+    private Logger logger= LoggerFactory.getLogger(getClass());
     @Autowired
     private LoginService loginService;
 
@@ -43,14 +47,14 @@ public class LoginController {
 
         //校验参数
         if (!ReqParamVerification.passwod(password) || !ReqParamVerification.username(username)) {
+            logger.info("参数校验失败。");
             throw new BlifeException(HttpCodeEnum.USERNAME_OR_PASSWORD_ERR);
         }
 
         //登录逻辑
-        loginService.webLogin(username, password, code);
+       String token= loginService.webLogin(username, password, code);
 
-        ReturnDTO returnDto = new ReturnDTO();
-        return returnDto;
+        return ReturnDTOUtil.success(token);
     }
 
     /**
