@@ -33,10 +33,7 @@ public class SysUser extends DataEntity<SysUser> {
     private String email;    // 邮箱
     private String phone;    // 电话
     private String mobile;    // 手机
-    @TableField(value = "login_ip")
-    private String loginIp;    // 最后登陆IP
-    @TableField(value = "old_login_ip")
-    private String oldLoginIp;    // 上次登陆IP
+
     @TableField(value = "login_flag")
     private String loginFlag;    // 是否允许登陆
     private String photo;    // 头像
@@ -150,26 +147,6 @@ public class SysUser extends DataEntity<SysUser> {
         return createDate;
     }
 
-
-    public String getLoginIp() {
-        return loginIp;
-    }
-
-    public void setLoginIp(String loginIp) {
-        this.loginIp = loginIp;
-    }
-
-
-    public String getOldLoginIp() {
-        if (oldLoginIp == null) {
-            return loginIp;
-        }
-        return oldLoginIp;
-    }
-
-    public void setOldLoginIp(String oldLoginIp) {
-        this.oldLoginIp = oldLoginIp;
-    }
 
 
     /**

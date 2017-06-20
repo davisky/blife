@@ -75,4 +75,5 @@
 
 
 请求流程
-![请求流程](https://raw.githubusercontent.com/javanan/blife/master/readme/dbprocess.png)
+![请求流程](https://raw.githubusercontent.com/javanan/blife/master/readme/dbprocess1.png)
+

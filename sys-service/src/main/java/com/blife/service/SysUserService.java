@@ -37,5 +37,7 @@ public class SysUserService extends ServiceImpl<SysUserDao, SysUser> {
     }
 
 
-
+    @Cacheable(cacheNames = "user",key="#username")
+    public void login(String username, String password) {
+    }
 }

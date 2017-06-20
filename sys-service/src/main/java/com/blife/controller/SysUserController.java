@@ -28,7 +28,7 @@ public class SysUserController {
 
     @RequestMapping(value = "/v1/login", method = RequestMethod.POST)
     public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
-
+        sysUserService.login(username,password);
         return "token";
     }
 
