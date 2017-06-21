@@ -41,9 +41,11 @@
         <module>security-service</module>
         <module>turbine-service</module>
         <module>cloud-admin-service</module>
+        <module>message-center-service</module>
     </modules>
 
     <dependencies>
+
 
         <dependency>
             <groupId>org.jolokia</groupId>

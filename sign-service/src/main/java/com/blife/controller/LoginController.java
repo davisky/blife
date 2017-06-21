@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class LoginController {
 
-    private Logger logger= LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private LoginService loginService;
 
@@ -37,7 +37,7 @@ public class LoginController {
      *
      * @param username 用户名
      * @param password 密码
-     * @param code 验证码
+     * @param code     验证码
      * @return
      */
 
@@ -52,7 +52,9 @@ public class LoginController {
         }
 
         //登录逻辑
-       String token= loginService.webLogin(username, password, code);
+        String token = loginService.webLogin(username, password, code);
+        // ctrl+b 热部署测试;
+        //String token = "dd";
 
         return ReturnDTOUtil.success(token);
     }

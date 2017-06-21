@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>message-center-service</artifactId>
+	<packaging>jar</packaging>
+
+	<name>message-center-service</name>
+	<description>message-center-service project for Spring Boot</description>
+
+	<parent>
+		<groupId>com.blife</groupId>
+		<artifactId>blife</artifactId>
+		<version>${blife-version}</version>
+	</parent>
+
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.blife</groupId>
+			<artifactId>commone</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+
+
+
+</project>

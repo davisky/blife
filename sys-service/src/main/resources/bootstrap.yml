@@ -6,3 +6,13 @@ spring:
     config:
      uri: http://b-config-service:7000
      profile: dev
+
+
+
+
+
+
+#添加那个目录的文件需要restart   devtools.restart.additional-paths: src/main/java
+
+
+#排除那个目录的文件不需要restart spring.devtools.restart.exclude=static/**,public/**

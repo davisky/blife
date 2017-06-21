@@ -28,6 +28,7 @@
         <module name="config-service" />
         <module name="eureka-service" />
         <module name="jwt-service" />
+        <module name="message-center-service" />
         <module name="security-service" />
         <module name="sign-service" />
         <module name="sleuth-service" />
@@ -45,6 +46,7 @@
       <module name="config-service" target="1.8" />
       <module name="eureka-service" target="1.8" />
       <module name="jwt-service" target="1.8" />
+      <module name="message-center-service" target="1.8" />
       <module name="security-service" target="1.8" />
       <module name="sign-service" target="1.8" />
       <module name="sleuth-service" target="1.8" />

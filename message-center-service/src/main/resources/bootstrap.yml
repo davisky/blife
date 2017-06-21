@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: message-center-service
+  cloud:
+    config:
+      uri: http://b-config-service:7000
+      profile: dev
+
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+
+mq:
+  host: 10.10.20.100
+  username: guest
+  password: guest
+  port: 5672
+  vhost: /
+  queue: email_queue

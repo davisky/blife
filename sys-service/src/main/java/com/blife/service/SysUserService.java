@@ -5,6 +5,7 @@ import com.blife.model.SysUser;
 import com.blife.repository.SysUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,19 +26,21 @@ public class SysUserService extends ServiceImpl<SysUserDao, SysUser> {
     private SysUserDao sysUserDao;
 
 
-    @Cacheable(cacheNames = "user",key="#id")
+    @Cacheable(cacheNames = "user:", key = "#id")
     public SysUser getById(String id) {
         return sysUserDao.selectById(id);
     }
 
 
     @Transactional(readOnly = false)
+    @CachePut(cacheNames = "user:", key = "#sysUser.id")
     public int addUser(SysUser sysUser) {
         return sysUserDao.insert(sysUser);
     }
 
 
-    @Cacheable(cacheNames = "user",key="#username")
-    public void login(String username, String password) {
+    @Cacheable(cacheNames = "user:", key = "#username")
+    public SysUser login(String username, String password) {
+       return new SysUser();
     }
 }

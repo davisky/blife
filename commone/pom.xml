@@ -76,5 +76,10 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 </project>
